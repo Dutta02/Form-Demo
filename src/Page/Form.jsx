@@ -4,8 +4,10 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import { Helmet } from "react-helmet-async";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-function Form() {
+function FormComponents() {
   const [submit, setSubmit] = useState(() => {
     const stored = localStorage.getItem("formData");
     return stored ? JSON.parse(stored) : [];
@@ -136,21 +138,21 @@ function Form() {
           value === ""
             ? `${name.charAt(0).toUpperCase() + name.slice(1)} is required`
             : "",
-      }))
+      }));
     }
-  }
+  };
 
   const deleteUserInfo = (indexToDelete) => {
     const updated = submit.filter((_, index) => index !== indexToDelete);
     setSubmit(updated);
-  }
+  };
 
   const [editx, setEditx] = useState(null);
   const editUserInfo = (index) => {
     const edit = submit[index];
     setData(edit);
     setEditx(index);
-  }
+  };
 
   const [viewer, setViewer] = useState(false);
 
@@ -181,251 +183,319 @@ function Form() {
       address: "",
       zip: "",
       message: "",
-    })
-    setError({})
-  }
+    });
+    setError({});
+  };
 
   return (
     <>
       <Helmet>
         <title>Contact Us - Team Everest | Form Portal</title>
-        <meta name="Contact Us" content="Learn more about our team and mission." />
-        <meta name="keywords" content="React, Task Manager, Dashboard, Productivity, charity (Donor) App" />
+        <meta
+          name="Contact Us"
+          content="Learn more about our team and mission."
+        />
+        <meta
+          name="keywords"
+          content="React, Task Manager, Dashboard, Productivity, charity (Donor) App"
+        />
       </Helmet>
-   
-    <div className="main-container">
 
-    <Container className="pt-5 pb-5">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={data.firstName}
-                onChange={handleChange}
-                maxLength={20}
-                className={`FirstName-textbox ${
-                  error.firstName ? "input-error" : ""
-                }`}
-              />
-              {error.firstName && <p className="error">{error.firstName}</p>}
-            </div>
+      <div className="main-container">
+        <Container className="pt-5 pb-5">
+          <div>
+            <Form onSubmit={handleSubmit}>
+              <div className="row">
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="firstName">
+                    <Form.Control
+                      type="text"
+                      name="firstName"
+                      placeholder="Enter your name"
+                      value={data.firstName}
+                      onChange={handleChange}
+                      maxLength={20}
+                      isInvalid={!!error.firstName}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.firstName}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
 
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={data.lastName}
-                onChange={handleChange}
-                maxLength={20}
-                className={`LastName-textbox ${
-                  error.lastName ? "input-error" : ""
-                }`}
-              />
-              {error.lastName && <p className="error">{error.lastName}</p>}
-            </div>
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="lastName">
+                    <Form.Control
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter your last name"
+                      value={data.lastName}
+                      onChange={handleChange}
+                      maxLength={20}
+                      isInvalid={!!error.lastName}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.lastName}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
+              </div>
 
-            <div className=" col-12 col-md-6 mb-3">
-              <input
-                type="email"
-                name="email"
-                placeholder="E-Mail ID"
-                value={data.email}
-                onChange={handleChange}
-                className={`FirstName-textbox ${
-                  error.email ? "input-error" : ""
-                }`}
-              />
-              {error.email && <p className="error">{error.email}</p>}
-            </div>
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={data.phone}
-                onChange={handleChange}
-                className={`LastName-textbox ${
-                  error.phone ? "input-error" : ""
-                }`}
-              />
-              {error.phone && <p className="error">{error.phone}</p>}
-            </div>
+              <div className="row">
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="email">
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      placeholder="name@example.com"
+                      value={data.email}
+                      onChange={handleChange}
+                      isInvalid={!!error.email}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.email}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
 
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="date"
-                name="birthDate"
-                value={data.birthDate}
-                onChange={handleChange}
-                className={`FirstName-textbox ${
-                  error.birthDate ? "input-error" : ""
-                }`}
-              />
-              {error.birthDate && <p className="error">{error.birthDate}</p>}
-            </div>
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="phone">
+                    <Form.Control
+                      type="text"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={data.phone}
+                      onChange={handleChange}
+                      isInvalid={!!error.phone}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.phone}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
+              </div>
 
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="text"
-                name="country"
-                placeholder="Country"
-                value={data.country}
-                onChange={handleChange}
-                maxLength={30}
-                className={`LastName-textbox ${
-                  error.country ? "input-error" : ""
-                }`}
-              />
-              {error.country && <p className="error">{error.country}</p>}
-            </div>
+              <div className="row">
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="birthDate">
+                    <Form.Control
+                      type="date"
+                      name="birthDate"
+                      value={data.birthDate}
+                      onChange={handleChange}
+                      isInvalid={!!error.birthDate}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.birthDate}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
 
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="text"
-                name="address"
-                placeholder="Address"
-                value={data.address}
-                onChange={handleChange}
-                maxLength={30}
-                className={`FirstName-textbox ${
-                  error.address ? "input-error" : ""
-                }`}
-              />
-              {error.address && <p className="error">{error.address}</p>}
-            </div>
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="country">
+                    <Form.Control
+                      type="text"
+                      name="country"
+                      placeholder="Country"
+                      value={data.country}
+                      onChange={handleChange}
+                      maxLength={30}
+                      isInvalid={!!error.country}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.country}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
+              </div>
 
-            <div className="col-12 col-md-6 mb-3">
-              <input
-                type="number"
-                name="zip"
-                placeholder="Zip-Code"
-                value={data.zip}
-                onChange={handleChange}
-                className={`LastName-textbox ${error.zip ? "input-error" : ""}`}
-              />
-              {error.zip && <p className="error">{error.zip}</p>}
-            </div>
+              <div className="row">
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="address">
+                    <Form.Control
+                      type="text"
+                      name="address"
+                      placeholder="Address"
+                      value={data.address}
+                      onChange={handleChange}
+                      maxLength={30}
+                      isInvalid={!!error.address}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.address}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
 
-            <div className="col-md-12 mb-3">
-              <input
-                type="message"
-                name="message"
-                placeholder="Message"
-                value={data.message}
-                onChange={handleChange}
-                maxLength={200}
-                className={`LastName-textbox1 ${
-                  error.country ? "input-error" : ""
-                }`}
-              />
-              {error.message && <p className="error">{error.message}</p>}
-            </div>
+                <div className="col-6">
+                  <Form.Group className="mb-4" controlId="zip">
+                    <Form.Control
+                      type="number"
+                      name="zip"
+                      placeholder="Zip-Code"
+                      value={data.zip}
+                      onChange={handleChange}
+                      isInvalid={!!error.zip}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.zip}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
+              </div>
 
-            <div className="col-md-12 mb-3 d-flex justify-content-center ">
-              <button type="submit" className="buttondiv">
-                Submit
-              </button>
-            </div>
+              <div className="row">
+                <div className="col-12">
+                  <Form.Group className="mb-4" controlId="message">
+                    <Form.Control
+                      as="textarea"
+                      name="message"
+                      placeholder="Message"
+                      value={data.message}
+                      onChange={handleChange}
+                      maxLength={200}
+                      rows={3}
+                      isInvalid={!!error.message}
+                    />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      style={{ color: "#1A5653" }}
+                    >
+                      {error.message}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-center mb-4">
+                <Button
+                  type="submit"
+                  className="btn btn-primary"
+                  style={{
+                    background: "linear-gradient(90deg, #1A5653, #1A5653)",
+                    border: "1px solid #1A5653",
+                  }}
+                >
+                  Submit
+                </Button>
+              </div>
+            </Form>
+
+            {submit.length > 0 && (
+              <table className="table-main">
+                <thead className="thead-main">
+                  <tr className="table-row">
+                    <th>Action</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Birth Date</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Zip</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                <tbody className="tbody-main">
+                  {submit.map((ele, index) => (
+                    <tr key={index} className="table-row">
+                      <td>
+                        <button
+                          onClick={() => deleteUserInfo(index)}
+                          className="Deletebutton"
+                        >
+                          Delete
+                        </button>
+                        <button
+                          onClick={() => editUserInfo(index)}
+                          className="Deletebutton"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleShow(index)}
+                          className="Deletebutton"
+                        >
+                          View
+                        </button>
+                      </td>
+                      <td>{ele.firstName}</td>
+                      <td>{ele.lastName}</td>
+                      <td>{ele.email}</td>
+                      <td>{ele.phone}</td>
+                      <td>{ele.birthDate}</td>
+                      <td>{ele.country}</td>
+                      <td>{ele.address}</td>
+                      <td>{ele.zip}</td>
+                      <td>{ele.message}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+            <Modal show={show} centered onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>User Details</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  <strong>First Name:</strong> {viewer.firstName}
+                </p>
+                <p>
+                  <strong>Last Name:</strong> {viewer.lastName}
+                </p>
+                <p>
+                  <strong>Email:</strong> {viewer.email}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {viewer.phone}
+                </p>
+                <p>
+                  <strong>Birth Date:</strong> {viewer.birthDate}
+                </p>
+                <p>
+                  <strong>Country:</strong> {viewer.country}
+                </p>
+                <p>
+                  <strong>Address:</strong> {viewer.address}
+                </p>
+                <p>
+                  <strong>Zip:</strong> {viewer.zip}
+                </p>
+                <p>
+                  <strong>Message:</strong> {viewer.message}
+                </p>
+              </Modal.Body>
+            </Modal>
           </div>
-        </form>
-
-        {submit.length > 0 && (
-          <table className="table-main">
-            <thead className="thead-main">
-              <tr className="table-row">
-                <th>Action</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Birth Date</th>
-                <th>Location</th>
-                <th>Address</th>
-                <th>Zip</th>
-                <th>Message</th>
-              </tr>
-            </thead>
-            <tbody className="tbody-main">
-              {submit.map((ele, index) => (
-                <tr key={index} className="table-row">
-                  <td>
-                    <button
-                      onClick={() => deleteUserInfo(index)}
-                      className="Deletebutton"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => editUserInfo(index)}
-                      className="Deletebutton"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleShow(index)}
-                      className="Deletebutton"
-                    >
-                      View
-                    </button>
-                  </td>
-                  <td>{ele.firstName}</td>
-                  <td>{ele.lastName}</td>
-                  <td>{ele.email}</td>
-                  <td>{ele.phone}</td>
-                  <td>{ele.birthDate}</td>
-                  <td>{ele.country}</td>
-                  <td>{ele.address}</td>
-                  <td>{ele.zip}</td>
-                  <td>{ele.message}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-
-        <Modal show={show} centered onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>User Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>
-              <strong>First Name:</strong> {viewer.firstName}
-            </p>
-            <p>
-              <strong>Last Name:</strong> {viewer.lastName}
-            </p>
-            <p>
-              <strong>Email:</strong> {viewer.email}
-            </p>
-            <p>
-              <strong>Phone:</strong> {viewer.phone}
-            </p>
-            <p>
-              <strong>Birth Date:</strong> {viewer.birthDate}
-            </p>
-            <p>
-              <strong>Country:</strong> {viewer.country}
-            </p>
-            <p>
-              <strong>Address:</strong> {viewer.address}
-            </p>
-            <p>
-              <strong>Zip:</strong> {viewer.zip}
-            </p>
-            <p>
-              <strong>Message:</strong> {viewer.message}
-            </p>
-          </Modal.Body>
-        </Modal>
+        </Container>
       </div>
-    </Container>
-    </div>
     </>
-  )
+  );
 }
-export default Form
+export default FormComponents;

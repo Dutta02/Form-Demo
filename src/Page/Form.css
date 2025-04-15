@@ -8,7 +8,10 @@ tr.table-row{
     border-style: solid; 
     border-width: 0;
 }
-
+.form-control.is-invalid{
+  background-image: url(/src/assets/deletebutton.jpg) !important;
+  border-color: #1a5653 !important;
+}
 
 .main-container {
   background-image: url(/src/assets/donate.jpg);

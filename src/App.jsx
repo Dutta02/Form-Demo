@@ -3,7 +3,7 @@ import React from 'react'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import AppLayout from './Layout/AppLayout'
 import FormProtal from './Page/FormPortal'
-import Form from './Page/Form'
+import  FormComponents from './Page/Form'
 
 function App() {
   const router = createBrowserRouter([
@@ -17,11 +17,10 @@ function App() {
        },
        {
         path: '/team everest/contact',
-        element: <Form />
+        element: <FormComponents />
       }
      ]
     }
-
   ])
   return <RouterProvider router={router} />
 }
