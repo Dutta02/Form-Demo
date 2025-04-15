@@ -1,0 +1,170 @@
+body,tr {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+tr.table-row{
+    border-color: inherit; 
+    border-style: solid; 
+    border-width: 0;
+}
+
+
+.main-container {
+  background-image: url(/src/assets/donate.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.FirstName-textbox,
+.LastName-textbox {
+  border-radius: 10px;
+  height: 7vh;
+  width: 100%;
+  margin: 10px 10px 0 10px;
+  padding:0 15px 0 15px;
+  border: 1px solid #000000;
+}
+
+.LastName-textbox1 {
+  border-radius: 10px;
+  height: 7vh;
+  width: 100%;
+  margin: 10px 10px 0 10px;
+  padding:0 15px 0 15px;
+  border: 1px solid #000000;
+}
+.NameDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttondiv {
+  border-radius: 10px;
+  width: 150px;
+  height: 45px;
+  background-color: #1a5653;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.table-main {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.thead-main th {
+  background-color: #f4f4f4;
+  padding: 12px;
+  border: 1px solid #000;
+  text-align: left;
+}
+
+td {
+  padding: 10px 12px;
+  border: 1px solid #000000;
+  text-align: left;
+  border-width: 1px;
+}
+
+
+.table-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 40px;
+}
+
+.thead-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tbody-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.table-row td {
+  flex: 1;
+  padding: 12px;
+  border-right: 1px solid #000000;
+  min-width: 200px;
+  word-wrap: break-word;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.table-row th {
+  flex: 1;
+  padding: 12px;
+  text-align: left;
+  border-right: 1px solid #000000;
+  min-width: 200px;
+  overflow: hidden;
+  word-wrap: break-word;
+  border-radius: 10px;
+}
+
+
+.error {
+  color: #08313a;
+  font-size: 12px;
+  margin: 0px 15px 8px;
+}
+
+.input-error {
+  border: 1.5px solid #08313a;
+  padding-right: 30px;
+  position: relative;
+  background-image: url(/src/assets/deletebutton.jpg);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+.Deletebutton {
+  border-radius: 13px;
+  background-color: #34a8a2;
+  margin: 0 4px 0 0;
+}
+
+.popupModal-maincontainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.popupModal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
