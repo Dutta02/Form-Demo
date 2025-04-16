@@ -1,0 +1,58 @@
+.container-main {
+  display: flex;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.list-column {
+  width: 45%;
+  background: #fcefd9;
+  overflow-y: auto;
+  padding: 1rem;
+  border-right: #1a5653;
+}
+
+.location-card {
+  background: #fff8ee;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.location-card.active {
+  background: #ffe9d2;
+  border-left: #1a5653;
+}
+
+.location-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+.name {
+  background:#1a5653;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem 0.8rem;
+  border: none;
+  border-radius: 15px;
+  margin: 0.5rem 0;
+}
+
+.date,
+.address,
+.phone {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.map-column {
+  width: 55%;
+  height: 100vh;
+}
+
+.map-column iframe {
+  width: 100%;
+  height: 100%;
+}

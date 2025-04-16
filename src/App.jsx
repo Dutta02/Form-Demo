@@ -4,6 +4,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import AppLayout from './Layout/AppLayout'
 import FormProtal from './Page/FormPortal'
 import  FormComponents from './Page/Form'
+import Addresses from './Page/Addresses'
+
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +20,10 @@ function App() {
        {
         path: '/team everest/contact',
         element: <FormComponents />
+      },
+      {
+        path: '/team-everest/addresses',
+        element: <Addresses />
       }
      ]
     }

@@ -1,13 +1,10 @@
-/* Header.css */
 .modern-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(90deg, #1A5653, #1A5653);
     padding: 12px 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -17,10 +14,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    color: white;
   }
   
   .logo-icon {
     font-size: 24px;
+    color: white;
   }
   
   .logo-text {
@@ -33,6 +32,7 @@
   .nav-links {
     display: flex;
     gap: 20px;
+    color: white;
   }
   
   .nav-item {
@@ -42,5 +42,8 @@
     color: white;
     padding: 6px 12px;
     border-radius: 5px;
+  }
+  .lol{
+    color: aliceblue;
   }
   

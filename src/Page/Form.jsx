@@ -295,57 +295,59 @@ function FormComponents() {
           </Form>
 
           {submit.length > 0 && (
-            <table className="table-main">
-              <thead className="thead-main">
-                <tr className="table-row">
-                  <th>Action</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Birth Date</th>
-                  <th>Location</th>
-                  <th>Address</th>
-                  <th>Zip</th>
-                  <th>Message</th>
-                </tr>
-              </thead>
-              <tbody className="tbody-main">
-                {submit.map((ele, index) => (
-                  <tr key={index} className="table-row">
-                    <td>
-                      <button
-                        onClick={() => deleteUserInfo(index)}
-                        className="Deletebutton"
-                      >
-                        Delete
-                      </button>
-                      <button
-                        onClick={() => editUserInfo(index)}
-                        className="Deletebutton"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleShow(index)}
-                        className="Deletebutton"
-                      >
-                        View
-                      </button>
-                    </td>
-                    <td>{ele.firstName}</td>
-                    <td>{ele.lastName}</td>
-                    <td>{ele.email}</td>
-                    <td>{ele.phone}</td>
-                    <td>{ele.birthDate}</td>
-                    <td>{ele.country}</td>
-                    <td>{ele.address}</td>
-                    <td>{ele.zip}</td>
-                    <td>{ele.message}</td>
+            <div className="table-wrapper">
+              <table className="table-main">
+                <thead className="thead-main">
+                  <tr className="table-row">
+                    <th>Action</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Birth Date</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Zip</th>
+                    <th>Message</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="tbody-main">
+                  {submit.map((ele, index) => (
+                    <tr className="table-row" key={index}>
+                      <td className="action-buttons">
+                        <button
+                          onClick={() => deleteUserInfo(index)}
+                          className="Deletebutton"
+                        >
+                          Delete
+                        </button>
+                        <button
+                          onClick={() => editUserInfo(index)}
+                          className="Editbutton"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleShow(index)}
+                          className="Viewbutton"
+                        >
+                          View
+                        </button>
+                      </td>
+                      <td>{ele.firstName}</td>
+                      <td>{ele.lastName}</td>
+                      <td>{ele.email}</td>
+                      <td>{ele.phone}</td>
+                      <td>{ele.birthDate}</td>
+                      <td>{ele.country}</td>
+                      <td>{ele.address}</td>
+                      <td>{ele.zip}</td>
+                      <td>{ele.message}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
 
           <Modal show={show} centered onHide={handleClose}>
