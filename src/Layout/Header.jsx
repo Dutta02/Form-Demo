@@ -15,12 +15,12 @@ function Header() {
         </Navbar.Brand>
 
         <Nav>
-          <Nav.Link as={Link} to="/contact" className="lol">
+          <Nav.Link as={Link} to="/contact">
             <FaWpforms style={{ marginRight: "6px" }} />
             Contact Us
           </Nav.Link>
           <Nav>
-          <Nav.Link as={Link} to="/addresses" className="lol">
+          <Nav.Link as={Link} to="/addresses">
             <IoLocation style={{ marginRight: "6px" }} />
             Address
           </Nav.Link>

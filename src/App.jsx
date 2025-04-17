@@ -18,11 +18,11 @@ function App() {
          element:<FormProtal/>
        },
        {
-        path: '/team everest/contact',
+        path: '/contact',
         element: <FormComponents />
       },
       {
-        path: '/team-everest/addresses',
+        path: '/addresses',
         element: <Addresses />
       }
      ]
