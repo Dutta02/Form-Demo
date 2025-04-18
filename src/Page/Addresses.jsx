@@ -3,14 +3,28 @@ import "./Addresses.css";
 import { Row, Col, Container, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
-import { PiX } from "react-icons/pi";
+import "react-multi-carousel/lib/styles.css";
 
 function Addresses() {
+  const [width,setWidth]=useState(window.innerWidth)
+  const [cardCount,setCardCount]=useState(3)
+  useEffect(() => {
+    window.onresize = (e) => {
+      setWidth(e.target.innerWidth)
+      if(e.target.innerWidth < 576 && e.target.innerWidth > 376){
+        setCardCount(2)
+      }else if(e.target.innerWidth < 376){
+        setCardCount(1)
+      }else{
+        setCardCount(3)
+      }
+    }   
+  }, []);
   const details = [
     {
       id: 1,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Shop No 46, Ground Floor, Maruti Mall Maruti Solaris, Anand - Sojitra Rd, near Madhuban Resort, Anand, Gujarat 388001",
       latitude: 22.57901492628373,
@@ -27,7 +41,7 @@ function Addresses() {
     {
       id: 2,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Survey No. 445, Subb, Belek No. 574, Plot No. 3, Taluka, near Chhatrala Multiplex, Moje, Umbhel, Kamrej, Gujarat 394327",
       latitude: 21.22330143404815,
@@ -44,7 +58,7 @@ function Addresses() {
     {
       id: 3,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Ground floor, school, Laxmi enclave, 2, near Gajera Road, Rajanand Society, Ram Nagar Society, Katargam, Surat, Gujarat 395004",
       latitude: 21.363687030104135,
@@ -61,7 +75,7 @@ function Addresses() {
     {
       id: 4,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Survey No 467, Plot No. 461/B, NH 8, Mumbai Ahmedabad Highway, Surat - Kamrej Hwy, near Old Tigri Hotel, Surat, Gujarat 394180",
       latitude: 21.472167403999364,
@@ -78,7 +92,7 @@ function Addresses() {
     {
       id: 5,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Ground Floor, NH 8, near Cheverolet Showroom, Vadadla, Bharuch, Gujarat 392015",
       latitude: 21.825867611605663,
@@ -95,7 +109,7 @@ function Addresses() {
     {
       id: 6,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Plot no. 422&423, Statue of Unity, Ekta Nagar, Kevadia, Gujarat 393155",
       latitude: 21.9630199352404,
@@ -112,7 +126,7 @@ function Addresses() {
     {
       id: 7,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Mumbai-Delhi Expressway (Ch, 347, BPCL, Goriyad, Vadodara, Gujarat 391440",
       latitude: 22.27967697569085,
@@ -129,7 +143,7 @@ function Addresses() {
     {
       id: 8,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Survey No 385/1 & 390 NH 8, opposite L&T Knowledge City, near Taksh Galaxy, Madhavpura, Vadodara, Gujarat 390019",
       latitude: 22.373680659308064,
@@ -146,7 +160,7 @@ function Addresses() {
     {
       id: 9,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Shop No 19 to 34, Siddhartha Annexe F Vaimali Road, Sama Savli, near Prasang Party Plot, Vadodara, Gujarat 390008",
       latitude: 22.454814610555186,
@@ -163,7 +177,7 @@ function Addresses() {
     {
       id: 10,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Ground Floor, The New World, Old Padra Rd, near Gail India Office, Manisha Chowkdi, Vadodara, Gujarat 390020",
       latitude: 22.32804162779571,
@@ -180,7 +194,7 @@ function Addresses() {
     {
       id: 11,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address: "18, NH 47, Changodar, Gujarat 382213",
       latitude: 22.942670668489537,
       longitude: 72.43857836232125,
@@ -196,7 +210,7 @@ function Addresses() {
     {
       id: 12,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Pegasus Commercial CHS, A 04 & A 05, 100 Feet Rd, Anand Nagar, Prahlad Nagar, Ahmedabad, Gujarat 380015",
       latitude: 23.02295256253445,
@@ -213,7 +227,7 @@ function Addresses() {
     {
       id: 13,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "SN 1, Hardcastle Restaurants Pvt Ltd Bopal Amli, junction, Sardar Patel Ring Rd, Ahmedabad, Gujarat 380058",
       latitude: 23.041277953233067,
@@ -230,7 +244,7 @@ function Addresses() {
     {
       id: 14,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Himalaya Mall, 38, Drive In Rd, next to Indraprasth Tower, Nilmani Society, Memnagar, Ahmedabad, Gujarat 380015",
       latitude: 23.058337283301206,
@@ -247,7 +261,7 @@ function Addresses() {
     {
       id: 15,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Near, Shop No G 1, 2 F 1A, GF, Yash Pinnacle, Anjali Cross Rd, Paldi, Ahmedabad, Gujarat 380004",
       latitude: 23.023584514059685,
@@ -264,7 +278,7 @@ function Addresses() {
     {
       id: 16,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Reliance Mall, Advance Mills Compound, Main Road, opposite Swaminarayan Temple, Shahibag, Ahmedabad, Gujarat 380004",
       latitude: 23.054546507852628,
@@ -281,7 +295,7 @@ function Addresses() {
     {
       id: 17,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Center Mall, Panchavati Society, Gulbai Tekra, Ahmedabad, Gujarat 380006",
       latitude: 23.026768831169875,
@@ -298,7 +312,7 @@ function Addresses() {
     {
       id: 18,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Ground & 1st Floor, Yash Aqua, 120 Feet Ring Rd, near Rasranjan Sweet Shop, AEC Char Rasta, University Area, Ahmedabad, Gujarat 380009",
       latitude: 23.04565115521077,
@@ -315,7 +329,7 @@ function Addresses() {
     {
       id: 19,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Ground Floor, City Gold Mall, Ashram Rd, Ahmedabad, Gujarat 380009",
       latitude: 23.035408220913595,
@@ -332,7 +346,7 @@ function Addresses() {
     {
       id: 20,
       name: "Mcdonald's",
-      store:"Map",
+      store: "Map",
       address:
         "Shop No. 01,02,101 Pramukh Tangent, Sargasan Cross Rd, Gandhinagar, Gujarat 382421",
       latitude: 23.23087082855346,
@@ -386,6 +400,7 @@ function Addresses() {
           </Col>
         </Row>
       </div>
+
       <div className="mobile">
         <Row
           className="row-main"
@@ -398,32 +413,39 @@ function Addresses() {
             style={{ overflowY: "auto", height: "100%" }}
           >
             <Carousel>
-              {details.map((ele) => (
-                <Carousel.Item key={ele.id}>
-                  <div 
-                    onClick={() => setActiveId(ele.id)}
-                    className={`location-card ${
-                      activeId === ele.id ? "active" : ""
-                    }`}
-                  >
-                    <h2 className="lol">{ele.name}</h2>
-                    <button className="name">{ele.store}</button>
-                    <p className="address">{ele.address}</p>
-                  </div>
-                </Carousel.Item>
-              ))}
+              {Array.from(
+                { length: Math.ceil(details.length / cardCount) },
+                (_, slideIndex) => (
+                  <Carousel.Item key={slideIndex}>
+                    <div className="d-flex justify-content-around">
+                      {details.slice(slideIndex * cardCount, slideIndex * cardCount + cardCount).map((ele) => (
+                          <div
+                            key={ele.id}
+                            onClick={() => setActiveId(ele.id)}
+                            className={`location-card ${
+                              activeId === ele.id ? "active" : ""
+                            }`}
+                            style={{ width:  cardCount === 3 ? "30%" : cardCount === 2 ? "50%" : cardCount === 1 ? "100%" : "100%" }}
+                          >
+                            <h2 className="lol">{ele.name}</h2>
+                            <button className="name">{ele.store}</button>
+                            <p className="address">{ele.address}</p>
+                          </div>
+                        ))}
+                        
+                    </div>
+                  </Carousel.Item>
+                )
+              )}
             </Carousel>
-            <div className="mapDiv" style={{height:` calc(100vh - 272px)` }}>
-               {activeLocation?.code || <p>Select a location to see the map</p>}
-          </div>
-          </Col>
 
-       
+            <div className="mapDiv" style={{ height: ` calc(100vh - 272px)` }}>
+              {activeLocation?.code || <p>Select a location to see the map</p>}
+            </div>
+          </Col>
         </Row>
       </div>
     </div>
-  );
+  )
 }
 export default Addresses;
-
-
